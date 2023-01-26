@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/src
 /.pnp
 .pnp.js
 ./jsconfig.json
@@ -12,7 +13,7 @@
 
 # production
 # /build removed so we can build locally
-./src
+/src
 
 # misc
 .DS_Store

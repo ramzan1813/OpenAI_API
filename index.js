@@ -8,7 +8,7 @@ require("dotenv-flow").config();
 require("./routes/middlewares/mongo");
 
 const app = express();
-const port = 3080;
+const port = process.env.PORT || 3080;
 
 app.use(morgan("dev"));
 app.use(cors());
@@ -32,5 +32,5 @@ app.use(express.static(__dirname + "/build"));
 app.get("*", (req, res) => res.sendFile(__dirname + "/build/index.html"));
 
 app.listen(port, () => {
-  console.log(`Example app listening at ${process.env.DOMAIN}:${port}`);
+  console.log(`Example app listening at ${process.env.DOMAIN}${port}`);
 });
