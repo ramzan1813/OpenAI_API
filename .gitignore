@@ -12,7 +12,7 @@
 
 # production
 # /build removed so we can build locally
-/build
+./src
 
 # misc
 .DS_Store
