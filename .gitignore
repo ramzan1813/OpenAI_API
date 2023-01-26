@@ -6,8 +6,8 @@
 /.pnp
 .pnp.js
 ./jsconfig.json
-./UPDATED_README_CONFIGURATION_INSTRUCTIONS.txt
-./env.dev # local dev environment variables
+UPDATED_README_CONFIGURATION_INSTRUCTIONS.txt
+
 # testing
 /coverage
 
@@ -21,8 +21,15 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env
+.env.dev
+config-overrides.js
+jsconfig.json
+package-lock.json
+
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 stripe.exe
+/UPDATED_README_CONFIGURATION_INSTRUCTIONS.txt
