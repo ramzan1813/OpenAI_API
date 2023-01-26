@@ -126,114 +126,291 @@ const Free = ({ fromColor, toColor, baseURL, api }) => <div className="flex rela
 </div>
 </div>
 
-const Entry = ({ fromColor, toColor, baseURL, api }) => <div className="flex relative ">
-  <div className={`absolute inset-0 bg-gradient-to-r from-${fromColor ? fromColor : "green-400"} to-${toColor ? toColor : "blue-500"} shadow-lg transform skew-y-0 -rotate-3 rounded-3xl `}></div>
+const Entry = ({ fromColor, toColor, baseURL, api }) => (
+  <div className="flex relative ">
+    <div
+      className={`absolute inset-0 bg-gradient-to-r from-${
+        fromColor ? fromColor : "green-400"
+      } to-${
+        toColor ? toColor : "blue-500"
+      } shadow-lg transform skew-y-0 -rotate-3 rounded-3xl `}
+    ></div>
 
-  <div className={`bg-white rounded-xl transition hover:shadow-md overflow-hidden md:max-w-1lg text-gray-500 border-t-2 border- hover:border-${fromColor ? fromColor : "blue-400"} md:flex relative transform hover:scale-105  hover:text-black flex-1`}>
-
-<div className="p-8 flex-1">
-  <div href="#" className={`text-${fromColor ? fromColor : "green-500"} block text-lg text-2xl leading-tight font-medium mb-2`}>Entry</div>
-  <div className="text-6xl text-black font-bold">$30<span className="text-lg text-gray-400">/per month</span></div>
-  <p className="mt-4 text-lg">
-	  Start today to get access to our powerful AI-powered features.
-  </p>
-  <div className="divide-y divide-dashed divide-gray-300 mt-4">
-	  <div className="py-2 flex  items-center">
-		  <DatabaseIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">250</span>{` x `}Credits</div>
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <MenuAlt1Icon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">15,000</span>{` x `}Words</div>
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <PencilIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">60,000</span>{` x `}Letters</div>
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <UserIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">2,700</span>{` x `}minutes saved</div>
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <CheckCircleIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">45</span>{` x `}hours of time saved</div>
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <CurrencyDollarIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">$1,000</span>{` x `} billable time saved</div> 
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <BanIcon className="w-6 h-6 mr-2 text-gray-400" /> 
-		  <div><span className="text-gray-400">Access to all tools</span></div> 
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <BanIcon className="w-6 h-6 mr-2 text-gray-400" /> 
-		  <div><span className="text-gray-400">New beta-feature testing</span></div> 
-	  </div>
+    <div
+      className={`bg-white rounded-xl transition hover:shadow-md overflow-hidden md:max-w-1lg text-gray-500 border-t-2 border- hover:border-${
+        fromColor ? fromColor : "blue-400"
+      } md:flex relative transform hover:scale-105  hover:text-black flex-1`}
+    >
+      <div className="p-8 flex-1">
+        <div
+          href="#"
+          className={`text-${
+            fromColor ? fromColor : "green-500"
+          } block text-lg text-2xl leading-tight font-medium mb-2`}
+        >
+          Entry
+        </div>
+        <div className="text-6xl text-black font-bold">
+          $10<span className="text-lg text-gray-400">/per month</span>
+        </div>
+        <p className="mt-4 text-lg">
+          Start today to get access to our powerful AI-powered features.
+        </p>
+        <div className="divide-y divide-dashed divide-gray-300 mt-4">
+          <div className="py-2 flex  items-center">
+            <DatabaseIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">250</span>
+              {` x `}Credits
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <MenuAlt1Icon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">15,000</span>
+              {` x `}Words
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <PencilIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">60,000</span>
+              {` x `}Letters
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <UserIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">2,700</span>
+              {` x `}minutes saved
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <CheckCircleIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">45</span>
+              {` x `}hours of time saved
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <CurrencyDollarIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">$1,000</span>
+              {` x `} billable time saved
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <BanIcon className="w-6 h-6 mr-2 text-gray-400" />
+            <div>
+              <span className="text-gray-400">Access to all tools</span>
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <BanIcon className="w-6 h-6 mr-2 text-gray-400" />
+            <div>
+              <span className="text-gray-400">New beta-feature testing</span>
+            </div>
+          </div>
+        </div>
+        <form
+          action={baseURL + "user/stripe/subscribe"}
+          method="POST"
+          className="flex flex-1"
+        >
+          <input
+            type="hidden"
+            name="token"
+            value={api.defaults.headers.common["x-access-token"]}
+          />
+          <input type="hidden" name="priceId" value={config.stripe.entry} />
+          <button
+            type="submit"
+            className={`mt-8 inset-0 bg-gradient-to-r from-${
+              fromColor ? fromColor : "green-400"
+            } to-${
+              toColor ? toColor : "blue-500"
+            } shadow-lg flex-1 rounded-md p-4 text-white font-medium text-center text-lg transition hover:from-gray-700 hover:to-gray-800 text-enter`}
+          >
+            Get Started
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
-  <form action={baseURL + "user/stripe/subscribe"} method="POST" className="flex flex-1">
-<input type="hidden" name="token" value={api.defaults.headers.common['x-access-token']} />
-		<input type="hidden" name="priceId" value={config.stripe.entry} />
-<button type="submit" className={`mt-8 inset-0 bg-gradient-to-r from-${fromColor ? fromColor : "green-400"} to-${toColor ? toColor : "blue-500"} shadow-lg flex-1 rounded-md p-4 text-white font-medium text-center text-lg transition hover:from-gray-700 hover:to-gray-800 text-enter`}>Get Started</button>
-</form>
-</div>
-</div>
-</div>
+);
 
+const Premium = ({ fromColor, toColor, baseURL, api }) => (
+  <div className="flex relative ">
+    <div
+      className={`absolute inset-0 bg-gradient-to-r from-${
+        fromColor ? fromColor : "green-400"
+      } to-${
+        toColor ? toColor : "blue-500"
+      }  shadow-lg transform skew-y-0 -rotate-3 rounded-3xl `}
+    ></div>
 
-const Premium = ({ fromColor, toColor, baseURL, api }) => <div className="flex relative ">
-  <div className={`absolute inset-0 bg-gradient-to-r from-${fromColor ? fromColor : "green-400"} to-${toColor ? toColor : "blue-500"}  shadow-lg transform skew-y-0 -rotate-3 rounded-3xl `}></div>
-
-  <div className={`bg-white rounded-xl transition hover:shadow-md overflow-hidden md:max-w-1lg text-gray-500 border-t-2 border- hover:border-${fromColor ? fromColor : "blue-400"} md:flex relative transform hover:scale-105  hover:text-black flex-1`}>
-
-<div className="p-8 flex-1">
-  <div href="#" className={`text-${fromColor ? fromColor : "green-500"} block text-lg text-2xl leading-tight font-medium mb-2`}>Pro</div>
-  <div className="text-6xl text-black font-bold">$90<span className="text-lg text-gray-400">/per month</span></div>
-  <p className="mt-4 text-lg">
-	  Start today to get access to our powerful AI-powered features.
-  </p>
-  <div className="divide-y divide-dashed divide-gray-300 mt-4">
-  <div className="py-2 flex  items-center">
-		  <DatabaseIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">1,000</span>{` x `}Credits</div>
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <MenuAlt1Icon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">60,000</span>{` x `}Words</div>
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <PencilIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">240,000</span>{` x `}Letters</div>
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <UserIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">10,800</span>{` x `}minutes saved</div>
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <CheckCircleIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">180</span>{` x `}hours of time saved</div>
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <CurrencyDollarIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">$4,000</span>{` x `} billable time saved</div> 
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <SparklesIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">Access to all tools</span></div> 
-	  </div>
-	  <div className="py-2 flex  items-center">
-		  <LightBulbIcon className={`w-6 h-6 mr-2 text-${fromColor ? fromColor : "green-500"}`} /> 
-		  <div><span className="font-medium text-black">New beta-feature testing</span></div> 
-	  </div>
+    <div
+      className={`bg-white rounded-xl transition hover:shadow-md overflow-hidden md:max-w-1lg text-gray-500 border-t-2 border- hover:border-${
+        fromColor ? fromColor : "blue-400"
+      } md:flex relative transform hover:scale-105  hover:text-black flex-1`}
+    >
+      <div className="p-8 flex-1">
+        <div
+          href="#"
+          className={`text-${
+            fromColor ? fromColor : "green-500"
+          } block text-lg text-2xl leading-tight font-medium mb-2`}
+        >
+          Pro
+        </div>
+        <div className="text-6xl text-black font-bold">
+          $30<span className="text-lg text-gray-400">/per month</span>
+        </div>
+        <p className="mt-4 text-lg">
+          Start today to get access to our powerful AI-powered features.
+        </p>
+        <div className="divide-y divide-dashed divide-gray-300 mt-4">
+          <div className="py-2 flex  items-center">
+            <DatabaseIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">1,000</span>
+              {` x `}Credits
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <MenuAlt1Icon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">60,000</span>
+              {` x `}Words
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <PencilIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">240,000</span>
+              {` x `}Letters
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <UserIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">10,800</span>
+              {` x `}minutes saved
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <CheckCircleIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">180</span>
+              {` x `}hours of time saved
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <CurrencyDollarIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">$4,000</span>
+              {` x `} billable time saved
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <SparklesIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">
+                Access to all tools
+              </span>
+            </div>
+          </div>
+          <div className="py-2 flex  items-center">
+            <LightBulbIcon
+              className={`w-6 h-6 mr-2 text-${
+                fromColor ? fromColor : "green-500"
+              }`}
+            />
+            <div>
+              <span className="font-medium text-black">
+                New beta-feature testing
+              </span>
+            </div>
+          </div>
+        </div>
+        <form
+          action={baseURL + "user/stripe/subscribe"}
+          method="POST"
+          className="flex flex-1"
+        >
+          <input
+            type="hidden"
+            name="token"
+            value={api.defaults.headers.common["x-access-token"]}
+          />
+          <input type="hidden" name="priceId" value={config.stripe.pro} />
+          <button
+            type="submit"
+            className={`mt-8 inset-0 bg-gradient-to-r from-${
+              fromColor ? fromColor : "green-400"
+            } to-${
+              toColor ? toColor : "blue-500"
+            } shadow-lg flex-1 rounded-md p-4 text-white font-medium text-center text-lg transition hover:from-gray-700 hover:to-gray-800 text-enter`}
+          >
+            Get Started
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
-  <form action={baseURL + "user/stripe/subscribe"} method="POST" className="flex flex-1">
-<input type="hidden" name="token" value={api.defaults.headers.common['x-access-token']} />
-		<input type="hidden" name="priceId" value={config.stripe.pro} />
-<button type="submit" className={`mt-8 inset-0 bg-gradient-to-r from-${fromColor ? fromColor : "green-400"} to-${toColor ? toColor : "blue-500"} shadow-lg flex-1 rounded-md p-4 text-white font-medium text-center text-lg transition hover:from-gray-700 hover:to-gray-800 text-enter`}>Get Started</button>
-</form>
-</div>
-</div>
-</div>
+);
 
 
 const Grid = ({ children }) => <div className="grid grid-cols-1 gap-12 mt-4 xl:grid-cols-3 ">{children}</div>

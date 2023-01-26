@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 const stripe = require('../middlewares/stripe');
 const checkout = require('./checkout');
 const subscription = require('./subscription');

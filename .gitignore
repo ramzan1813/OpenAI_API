@@ -4,12 +4,15 @@
 /node_modules
 /.pnp
 .pnp.js
-
+./jsconfig.json
+./UPDATED_README_CONFIGURATION_INSTRUCTIONS.txt
+./env.dev # local dev environment variables
 # testing
 /coverage
 
 # production
 # /build removed so we can build locally
+/build
 
 # misc
 .DS_Store

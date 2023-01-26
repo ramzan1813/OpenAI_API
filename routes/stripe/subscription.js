@@ -4,8 +4,10 @@ const User = models.user;
 const subscription = async (eventType,data) => {
 
 	if (!eventType.includes("subscription")) {
-		return // not a subscription event
-	}
+    console.log("not a subscription event");
+    return;
+    // not a subscription event
+  }
 
 	console.log("subscription event detected",eventType)
 	
