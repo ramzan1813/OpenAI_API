@@ -16,20 +16,20 @@ app.post('/stripe/subscribe', async  (req, res) => {
 			let customer = user.customerId ? { customer: user.customerId } : {customer_email: user.email}
 			const subscription_data = trial ? { trial_period_days: 7 } : {}
 			const session = await stripe.checkout.sessions.create({
-			mode: 'subscription',
-			payment_method_types: ['card'],
-			...customer,
-			line_items: [
-				{
-					price: priceId,
-					// For metered billing, do not pass quantity
-					quantity: 1,
-				},
-			],
-			subscription_data,
-			success_url: `${domainURL}signup/success?session_id={CHECKOUT_SESSION_ID}`,
-			cancel_url: `${domainURL}signup/failed`,
-		});
+        mode: "subscription",
+        payment_method_types: ["card"],
+        ...customer,
+        line_items: [
+          {
+            price: priceId,
+            // For metered billing, do not pass quantity
+            quantity: 1,
+          },
+        ],
+        subscription_data,
+        success_url: `${domainURL}/signup/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${domainURL}/signup/failed`,
+      });
 		res.redirect(303, session.url);
 	} catch (e) {
 		res.status(400);

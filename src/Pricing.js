@@ -151,7 +151,7 @@ const Entry = ({ fromColor, toColor, baseURL, api }) => (
           Entry
         </div>
         <div className="text-6xl text-black font-bold">
-          $10<span className="text-lg text-gray-400">/per month</span>
+          $9.97<span className="text-lg text-gray-400">/per month</span>
         </div>
         <p className="mt-4 text-lg">
           Start today to get access to our powerful AI-powered features.
@@ -288,7 +288,7 @@ const Premium = ({ fromColor, toColor, baseURL, api }) => (
           Pro
         </div>
         <div className="text-6xl text-black font-bold">
-          $30<span className="text-lg text-gray-400">/per month</span>
+          $19.97<span className="text-lg text-gray-400">/per month</span>
         </div>
         <p className="mt-4 text-lg">
           Start today to get access to our powerful AI-powered features.
