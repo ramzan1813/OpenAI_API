@@ -13,7 +13,6 @@ UPDATED_README_CONFIGURATION_INSTRUCTIONS.txt
 
 # production
 # /build removed so we can build locally
-/src
 
 # misc
 .DS_Store
