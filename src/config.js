@@ -10,7 +10,7 @@ const dev = {
 
 const prod = {
   baseURL: "/api/",
-  landingPageUrl: "https://nodejstestdrive.herokuapp.com",
+  landingPageUrl: "http://www.ramzankhan.tk",
   stripe: {
     free: "price_1MQB54JM381soXhGbx8Vl7Aa",
     entry: "price_1MQB7NJM381soXhGeLMRHq2N",
