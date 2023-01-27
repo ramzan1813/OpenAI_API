@@ -19,7 +19,7 @@ class Login extends Component {
       if (this.props.store.profile.status) {
         this.loading = false;
       }
-    }, 100);
+    }, 1000);
   }
   componentWillUnmount() {
     clearInterval(this.refresh);
