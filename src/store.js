@@ -107,13 +107,14 @@ class appStore {
 
 	refreshTokenAndProfile = async () => {
 		try {
-			let data = await this.api
-				.post('/user/refresh/profile')
-				.then(({ data }) => data)
-			if(data){
-				this.setProfile(data.profile)
-			}
-		} catch (err) {
+      let data = await this.api
+        .post("/user/refresh/profile")
+        .then(({ data }) => data);
+      // console.log(`data`, data);
+      if (data) {
+        this.setProfile(data.profile);
+      }
+    } catch (err) {
 			console.log(err)
 			this.handleLogout()
 		}

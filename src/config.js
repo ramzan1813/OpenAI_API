@@ -1,6 +1,6 @@
 const dev = {
   baseURL: "http://localhost:3080/api/",
-  landingPageUrl: "http://localhost:3080",
+  landingPageUrl: "http://localhost:3000",
   stripe: {
     free: "price_1MQ9iZEKbjlHjR0pi3PIUsIc",
     entry: "price_1MQ9S1EKbjlHjR0p3sSrbAEO",
@@ -18,8 +18,10 @@ const prod = {
   },
 };
 
-const config =
-  // process.env.NODE_ENV === 'development'	? dev	:
-  prod;
+const config = 
+// process.env.NODE_ENV === "development" ? 
+dev 
+// : prod
+;
   
 export default config;

@@ -18,6 +18,8 @@ class Login extends Component {
       this.props.store.refreshTokenAndProfile();
       if (this.props.store.profile.status) {
         this.loading = false;
+      } else {
+        // console.log(this.props.store.profile.status);
       }
     }, 1000);
   }
