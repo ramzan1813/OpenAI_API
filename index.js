@@ -33,5 +33,5 @@ app.use(express.static(__dirname + "/build"));
 app.get("*", (req, res) => res.sendFile(__dirname + "/build/index.html"));
 
 app.listen(port, () => {
-  console.log(`Example app listening at ${process.env.DOMAIN}`);
+  console.log(`Example app listening at http://localhost:${port}`);
 });
