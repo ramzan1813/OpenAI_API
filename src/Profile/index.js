@@ -147,7 +147,7 @@ class Body extends Component {
             </Route>
             <Route>
               <Grid>
-                {this.plan.status === "trialing" ? (
+                {/* {this.plan.status === "trialing" ? (
                   <ToolForm
                     Icon={CheckIcon}
                     title={`Active Subscription`}
@@ -159,7 +159,7 @@ class Body extends Component {
                     fromColor="purple-500"
                     toColor="indigo-600"
                   />
-                ) : null}
+                ) : null} */}
 
                 {this.plan.plan === "None" && (
                   <Tool
