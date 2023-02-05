@@ -78,70 +78,110 @@ class SidebarCompontent extends Component {
 
 	render() {
 		return (
-						<>
-							<Textarea readOnly name="copy-textarea" id="copy-textarea" value={this.props.store.copyToClipboardText}  />
-							 <HeaderExpand>
-										<Body className="px-4 py-4 md:px-28 md:py-8 lg:py-12 flex items-center flex-1">
-											<div className="mr-4">
-											<NavLink to="/"><Logo /></NavLink>
-											</div>
-												<div>
-													<div className="text-4xl relative font-medium text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-600 inline-block">OpenAI<span className="font-normal "> Template</span> 
-														<div className="absolute top-0 ml-3 left-full bg-gradient-to-br from-gray-500 to-gray-500 text-white text-sm px-2 py-0.5 rounded-md font-normal hidden md:flex">gpt3</div>
-													</div>
-													<div className="hidden md:block text-xl text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-500 inline-block">Prepare and create your own OpenAI Prompts and Outputs</div>
-													<div className="flex">
-														<div className={`items-center flex inline-flex ${this.props.store.profile.credits ? " bg-gray-100 text-gray-500" : " bg-red-100 text-red-500"} text-sm rounded-md px-3 py-1 font-medium my-2 mr-2`}>
-															<DatabaseIcon className="w-4 h-4 mr-2" />{this.props.store.profile.credits}&nbsp;<span className="hidden lg:block">credits remain</span>
-														</div>
-													</div>
-												</div>
-										</Body>
-								 </HeaderExpand>
-								<div className="border-b border-gray-300 bg-white shadow-sm ">
-										<div className="container flex mx-auto px-4 md:px-28 flex select-none">
-														<NavLink to="/"
-														 exact
-														 tabIndex={-1}
-														 onClick={()=>this.props.store.toolsKeyword = ""}
-														 activeClassName="bg-gray-100 hover:bg-gray-200 text-gray-800 transition"
-														 className="text-lg flex py-3 px-6 lg:py-4 lg:px-8 cursor-pointer hover:bg-gray-100 rounded-t-md font-medium transition items-center">
-															 <IconDashboard className="w-7 h-7 lg:mr-4 transition" />
-															 <div className="hidden lg:block">Tools</div>
-															</NavLink>
-														 
-														<div className="relative text-gray-400 focus-within:text-green-500 flex flex-1 ">
-															<label htmlFor="q" className="absolute inset-y-0 left-0 top-0 bottom-0 hidden md:flex items-center lg:pl-2 ">
-																	<div type="submit" className="p-2 focus:outline-none focus:shadow-outline ">
-																	<svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-6 h-6 transition"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-																	</div>
-															</label>
-															<Input 
-																type="search" 
-																tabIndex={-1}
-																id="q"
-																name="q" 
-																className="py-4 pl-4 md:pl-14 text-xl focus:outline-none focus:bg-white focus:text-gray-900 transition flex flex-1 w-full" placeholder="Search...  [Shortcut: Ctrl + K]" autoComplete="off" 
-																value={this.props.store.toolsKeyword} 
-																onChange={this.props.store.onChangeToolsKeyword} 
-																onKeyUp={this.onKeyUp}
-															/>
-														</div>
-														<NavLink to="/my-profile"
-														 exact
-														 tabIndex="-1"
-														 activeClassName="bg-green-100 hover:bg-green-200 text-green-800 transition"
-														 className={`text-lg flex py-3 px-6 xl:py-4 xl:px-8 cursor-pointer ${this.fromColor} hover:bg-gray-100 rounded-t-md font-medium transition items-center`}><UserCircleIcon className="w-7 h-7 lg:mr-4 transition" />
-															<div className="hidden lg:block"> My Profile</div>
-														</NavLink>
+      <>
+        <Textarea
+          readOnly
+          name="copy-textarea"
+          id="copy-textarea"
+          value={this.props.store.copyToClipboardText}
+        />
+        <HeaderExpand>
+          <Body className="px-4 py-4 md:px-28 md:py-8 lg:py-12 flex items-center flex-1">
+            <div className="mr-4">
+              <NavLink to="/">
+                <Logo />
+              </NavLink>
+            </div>
+            <div>
+              <div className="text-4xl relative font-medium text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-600 inline-block">
+                Full Time<span className="font-normal "> Pressure</span>
+                <div className="absolute top-0 ml-3 left-full bg-gradient-to-br from-gray-500 to-gray-500 text-white text-sm px-2 py-0.5 rounded-md font-normal hidden md:flex">
+                  AI
+                </div>
+              </div>
+              <div className="hidden md:block text-xl text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-500 inline-block">
+                Prepare and create your own AI Prompts and Outputs
+              </div>
+              <div className="flex">
+                <div
+                  className={`items-center flex inline-flex ${
+                    this.props.store.profile.credits
+                      ? " bg-gray-100 text-gray-500"
+                      : " bg-red-100 text-red-500"
+                  } text-sm rounded-md px-3 py-1 font-medium my-2 mr-2`}
+                >
+                  <DatabaseIcon className="w-4 h-4 mr-2" />
+                  {this.props.store.profile.credits}&nbsp;
+                  <span className="hidden lg:block">credits remain</span>
+                </div>
+              </div>
+            </div>
+          </Body>
+        </HeaderExpand>
+        <div className="border-b border-gray-300 bg-white shadow-sm ">
+          <div className="container flex mx-auto px-4 md:px-28 flex select-none">
+            <NavLink
+              to="/"
+              exact
+              tabIndex={-1}
+              onClick={() => (this.props.store.toolsKeyword = "")}
+              activeClassName="bg-gray-100 hover:bg-gray-200 text-gray-800 transition"
+              className="text-lg flex py-3 px-6 lg:py-4 lg:px-8 cursor-pointer hover:bg-gray-100 rounded-t-md font-medium transition items-center"
+            >
+              <IconDashboard className="w-7 h-7 lg:mr-4 transition" />
+              <div className="hidden lg:block">Tools</div>
+            </NavLink>
 
-
-												</div>
-												
-								</div>
-								{this.props.children}
-						</>
-			)
+            <div className="relative text-gray-400 focus-within:text-green-500 flex flex-1 ">
+              <label
+                htmlFor="q"
+                className="absolute inset-y-0 left-0 top-0 bottom-0 hidden md:flex items-center lg:pl-2 "
+              >
+                <div
+                  type="submit"
+                  className="p-2 focus:outline-none focus:shadow-outline "
+                >
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    className="w-6 h-6 transition"
+                  >
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+                </div>
+              </label>
+              <Input
+                type="search"
+                tabIndex={-1}
+                id="q"
+                name="q"
+                className="py-4 pl-4 md:pl-14 text-xl focus:outline-none focus:bg-white focus:text-gray-900 transition flex flex-1 w-full"
+                placeholder="Search...  [Shortcut: Ctrl + K]"
+                autoComplete="off"
+                value={this.props.store.toolsKeyword}
+                onChange={this.props.store.onChangeToolsKeyword}
+                onKeyUp={this.onKeyUp}
+              />
+            </div>
+            <NavLink
+              to="/my-profile"
+              exact
+              tabIndex="-1"
+              activeClassName="bg-green-100 hover:bg-green-200 text-green-800 transition"
+              className={`text-lg flex py-3 px-6 xl:py-4 xl:px-8 cursor-pointer ${this.fromColor} hover:bg-gray-100 rounded-t-md font-medium transition items-center`}
+            >
+              <UserCircleIcon className="w-7 h-7 lg:mr-4 transition" />
+              <div className="hidden lg:block"> My Profile</div>
+            </NavLink>
+          </div>
+        </div>
+        {this.props.children}
+      </>
+    );
 		}
 }	
 

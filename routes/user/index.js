@@ -90,7 +90,7 @@ app.post("/stripe/customer-portal", async (req, res) => {
       customer: user.customerId,
       return_url: returnUrl,
     });
-    console.log(portalSession);
+    // console.log(portalSession);
     // Redirect to the URL for the session
     res.redirect(303, portalSession.url);
   } catch (err) {
@@ -218,57 +218,6 @@ app.post("/stripe/uncancel", async (req, res) => {
     res.redirect(303, returnUrl);
   }
 });
-// change plan url route
-app.post("/stripe/change_plan", async (req, res) => {
-  // find user
-  let user = await User.findOne({ _id: req.user._id });
-  // get subscription
-  const data = await stripe.subscriptions.list({
-    customer: user.customerId,
-    limit: 1,
-  });
-  // console.log(data.data[0]);
-  try {
-    // This is the url to which the customer will be redirected when they are done
-    const domainURL = process.env.DOMAIN;
-    const returnUrl = `${domainURL}my-profile`;
-    // change plan based on user plan
-    if (user.plan === "Basic") {
-      // update subscription
-      const subscriptions = await stripe.subscriptions.update(data.data[0].id, {
-        // get plan from env / price id
-        plan: process.env.STRIPE_PRODUCT_ENTRY,
-        // change plan at next billing cycle
-        billing_cycle_anchor: "now",
-      });
-      // update user plan in database
-      await User.findByIdAndUpdate(
-        { _id: req.user._id },
-        { plan: subscriptions.data[0].plan.nickname }
-      );
-    } else if (user.plan === "Pro") {
-      // update subscription
-      const subscriptions = await stripe.subscriptions.update(data.data[0].id, {
-        // get plan from env / price id
-        plan: process.env.STRIPE_PRODUCT_PRO,
-        // change plan at next billing cycle
-        billing_cycle_anchor: "now",
-      });
-      // update user plan in database
-      await User.findByIdAndUpdate(
-        { _id: req.user._id },
-        { plan: subscriptions.data[0].plan.nickname }
-      );
-    }
-    // redirect to my profile
-    setTimeout(() => res.redirect(303, returnUrl), 2500);
-  } catch (err) {
-    console.log(err);
-    const domainURL = process.env.DOMAIN;
-    const returnUrl = `${domainURL}my-profile`;
-    res.redirect(303, returnUrl);
-  }
-});
 
 app.post("/stripe/plan", async (req, res) => {
   try {
@@ -316,12 +265,11 @@ app.post("/stripe/plan", async (req, res) => {
           }
         );
       } else if (
-        subscriptions.data[0].cancel_at_period_end &&
-        user.cancel_at_period_end === false
+        subscriptions.data[0].cancel_at_period_end !== user.cancel_at_period_end
       ) {
         await User.findByIdAndUpdate(
           { _id: req.user._id },
-          { cancel_at_period_end: true }
+          { cancel_at_period_end: subscriptions.data[0].cancel_at_period_end }
         );
       }
       if (subscriptions.data[0]) {

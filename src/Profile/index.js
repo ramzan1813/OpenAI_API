@@ -232,36 +232,6 @@ class Body extends Component {
                       ) : null}
                     </>
 
-                    <>
-                      {this.props.store.profile.cancel_at_period_end ? null : (
-                        <ToolForm
-                          Icon={CheckIcon}
-                          title={
-                            this.props.store.profile.plan === "Pro"
-                              ? "Downgrade to Basic"
-                              : "Upgrade to Pro"
-                          }
-                          api={this.props.store.api}
-                          desc={
-                            "Immediately cancelation and change subscription ."
-                          }
-                          to={
-                            this.props.store.baseURL + "user/stripe/change_plan"
-                          }
-                          fromColor={
-                            this.props.store.profile.plan === "Pro"
-                              ? "green-400"
-                              : "bule-400"
-                          }
-                          toColor={
-                            this.props.store.profile.plan === "Pro"
-                              ? "green-400"
-                              : "bule-400"
-                          }
-                        />
-                      )}
-                    </>
-
                     <ToolForm
                       Icon={IdentificationIcon}
                       title={
